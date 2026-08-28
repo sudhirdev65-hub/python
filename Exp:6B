@@ -1,0 +1,18 @@
+from collections import deque
+
+string = input("Enter a string: ")
+dq = deque()
+for char in string:
+    if char.isalnum():
+        dq.append(char.lower())
+is_palindrome = True
+while len(dq) > 1:
+    front = dq.popleft()
+    rear = dq.pop()
+    if front != rear:
+        is_palindrome = False
+        break
+if is_palindrome:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
